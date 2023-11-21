@@ -1,69 +1,142 @@
-# University Management Core Service
-This guide will walk you through the process of setting up the University Management Core Service Starter project. By following these steps, you will clone the project, install dependencies, and configure Prisma for database management. Let's get started!
+## Wayfarer Travels - Tour Booking Website
+## Overview
+The Tour Booking Website is a comprehensive platform designed to facilitate the seamless interaction between users, administrators, and super administrators. It offers a wide range of functionalities that cater to different stakeholders, ensuring an intuitive and efficient booking experience.
 
+## User Functionality
+* Registration and User Profiles
+- Users can easily register with a valid email address, ensuring a straightforward onboarding process.
+- Password validation and security measures are implemented to protect user accounts.
+- User profiles can be created and managed, allowing customization of personal information and preferences.
+- Users have the capability to view and edit their profiles effortlessly.
+## Tour Browsing and Booking
+- Users can browse available services, making it easy to explore the offerings.
+- A powerful search feature enables users to find services by name, location, and category.
+- Users can filter services by price range and other relevant criteria for a personalized experience.
+- Booking tours are straightforward, with options to select dates and times if applicable.
+- A smooth and user-friendly booking process with confirmation enhances the user experience.
+## Booking Management and Interaction
+- Users can track the status of their bookings, ensuring full transparency.
+- The platform supports reviews and ratings for services, providing valuable feedback and promoting transparency.
+- Reviews and ratings are displayed on service listings, aiding users in making informed choices.
+- A user dashboard showcases booking history and statuses, enhancing user engagement.
+- Users have the flexibility to cancel bookings when necessary.
+- User-friendly feedback forms are available for users to submit comments and suggestions.
+## Admin Functionality
+- Admins access a centralized dashboard for effective monitoring and management of website activities.
+- User accounts can be added, edited, and managed to ensure a smooth user experience.
+- Admins can manage tour listings, including options for pricing, descriptions, and availability.
+- A booking management system provides a comprehensive view of booking requests, with options to accept, reject, or adjust schedules as needed.
+- Admins have control over website content, including blog posts and FAQs, through a content management system.
+- Administrative profiles can be managed for personalized control.
+## Super Admin Functional Requirements
+- Super admins have the authority to add new admin users to the system, enhancing scalability and delegation of responsibilities.
+- Options for managing admin roles allow for customized access and control.
+- Super admins can maintain their personal information through a profile management system.
+The Tour Booking Website is a feature-rich platform that caters to users, administrators, and super administrators, offering a user-friendly and comprehensive solution for tour booking and management.
 
-## Installation Steps
-### Follow these steps to clone and set up starter project:
+## API ENDPOINTS
+### Auth Routes
+- auth/login (POST)
+- auth/refresh-token (POST)
+  
+### User Routes
+- user (GET)
+- user/:id (GET)
+- user/:id (PATCH)
+- user/:id (DELETE)
+- user/register (POST)
+- user/profile (POST)
+- user/profile (GET)
+- user/my-booking (GET)
+- user//my-enquiry (GET)
+- user/my-enquiry/:id (GET)
+- user/my-feedback (GET)
 
-1. `Clone the project:` Open your terminal or command prompt and run the following command to clone the project repository:
+### Admin Routes
+- admin/create-admin (POST)
+- admin (GET)
+- admin/:id (PATCH)
+- admin/:id (DELETE)
+- admin/:id (GET)
+- admin/profile (GET)
+- admin/profile (PATCH)
 
-```bash
-git clone https://github.com/Programming-Hero-Next-Level-Development/university-management-core-service-starter.git university-management-core-service
-```
+### Super Admin Routes
+- super-admin/profile (GET)
+- super-admin/profile (PATCH)
 
-2. `Navigate into the project directory:` Use the cd command to navigate into the project directory:
+### Category Routes
+- category (POST)
+- category (GET)
+- category/:id (GET)
+- category/:id (PATCH)
+- category/:id (DELETE)
+  
 
-```bash
-cd university-management-core-service
-```
+### Package Routes
+- package (POST)
+- package (GET)
+- package/:id (GET)
+- package/:id (PATCH)
+- package/:id (DELETE)
 
-3. `Install project dependencies:` Next, install the project dependencies by running the following command:
+### Team Routes
+- team (POST)
+- team (GET)
+- team/:id (GET)
+- team/:id (PATCH)
+- team/:id (DELETE)
 
-```bash
-yarn install
-```
+### Booking Routes
+- booking/create-booking (POST)
+- booking (GET)
+- booking/:id (GET)
+- booking/:id (PATCH)
+- booking/cancel-booking/:id (PATCH)
+- booking/:id (DELETE)
 
-4. Configure Prisma and the database connection:
+### Contact Routes
+- contact (POST)
+- contact (GET)
+- contact/:id (GET)
+- contact/:id (PATCH)
+- contact/:id (DELETE)
 
-- Add Prisma as a development dependency by running the following command:
-```bash
-yarn add prisma --save-dev
-```
+### Review Routes
+- review (POST)
+- review (GET)
+- review/:id (GET)
+- review/:id (PATCH)
+- review/:id (DELETE)
 
-- Set up your Prisma project by creating the Prisma schema file using the following command:
-```bash
-npx prisma init
-```
+### News Routes
+- news (POST)
+- news (GET)
+- news/:id (GET)
+- news/:id (PATCH)
+- news/:id (DELETE)
 
-- Open the prisma/schema.prisma file and configure your database connection details.
+### FAQ Routes
+- faq (POST)
+- faq (GET)
+- faq/:id (GET)
+- faq/:id (PATCH)
+- faq/:id (DELETE)
 
-```bash
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-```
+### FAQ Routes
+- feedback (POST)
+- feedback (GET)
+- feedback/:id (GET)
+- feedback/:id (PATCH)
+- feedback/:id (DELETE)                                                                                                                                                                                                                                                                                                                                                               
+### Admin Credential: 
+- Email: admin@gmail.com 
+- Password:012345
 
-- Create a .env file in the project root directory and set the DATABASE_URL environment variable. Replace the placeholders with your database connection details:
-```bash
-DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA"
-```
+### Super Admin Credential: 
+- Email: arfatakter39@gmail.com
+- Password:012345
 
-5. Creating the database schema
-6. Migrate the database schema: Use the following command to create and apply the initial database schema:
+### ER Diagram
+![image](https://github.com/arfatbegum/wayfarer-travel-backend/assets/96864183/a0885165-9ae8-434e-b04f-30549c4e50e9)
 
-```bash
-npx prisma migrate dev --name init
-```
-This command creates a new migration file based on your schema changes and applies it to your database.
-
-6. `Install Prisma Client:` Install the Prisma Client library by running the following command:
-```bash
-yarn add @prisma/client
-```
-
-This command installs the Prisma Client, which provides an interface to interact with your database.
-
-That's it! You have successfully set up the University Management Core Service Starter project. You can now start exploring and working with the codebase. Refer to the project documentation or README for further instructions on how to run and use the core service.
-
-Happy coding!
